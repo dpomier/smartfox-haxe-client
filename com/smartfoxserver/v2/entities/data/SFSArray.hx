@@ -1,7 +1,7 @@
 package com.smartfoxserver.v2.entities.data;
 
 import com.smartfoxserver.v2.protocol.serialization.DefaultSFSDataSerializer;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.SFSArray')
 extern class SFSArray
 {

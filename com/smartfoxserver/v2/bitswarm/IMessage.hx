@@ -1,6 +1,6 @@
 package com.smartfoxserver.v2.bitswarm;
 
-#if html5
+#if (html5 && SFS2X)
 typedef IMessage = Message;
 #else
 import com.smartfoxserver.v2.entities.data.ISFSObject;

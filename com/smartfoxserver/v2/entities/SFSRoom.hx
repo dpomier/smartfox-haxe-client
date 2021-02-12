@@ -2,7 +2,7 @@ package com.smartfoxserver.v2.entities;
 import com.smartfoxserver.v2.entities.managers.IRoomManager;
 import com.smartfoxserver.v2.entities.managers.SFSRoomManager;
 import com.smartfoxserver.v2.entities.variables.RoomVariable;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.SFSRoom')
 extern class SFSRoom{
 	var capacity:Int;

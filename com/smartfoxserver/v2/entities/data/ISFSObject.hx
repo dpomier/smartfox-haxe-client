@@ -1,5 +1,5 @@
 package com.smartfoxserver.v2.entities.data;
-#if html5
+#if (html5 && SFS2X)
 typedef ISFSObject = SFSObject;
 #else
 import flash.utils.ByteArray;

@@ -3,7 +3,7 @@ import com.smartfoxserver.v2.entities.managers.SFSUserManager;
 import com.smartfoxserver.v2.entities.variables.SFSUserVariable;
 import com.smartfoxserver.v2.entities.variables.UserVariable;
 
-#if html5
+#if (html5 && SFS2X)
 @:native('Object')
 extern class SFSUser
 {

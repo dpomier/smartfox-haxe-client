@@ -1,5 +1,5 @@
 package com.smartfoxserver.v2.core;
-#if !html5
+#if !(html5 && SFS2X)
 import flash.events.Event;
 #end
 
@@ -10,7 +10,7 @@ import flash.events.Event;
  * 
  * @see 	SFSEvent
  */
-#if html5 extern #end class SFSBuddyEvent #if html5 implements Dynamic #else extends BaseEvent #end
+#if (html5 && SFS2X) extern #end class SFSBuddyEvent #if (html5 && SFS2X) implements Dynamic #else extends BaseEvent #end
 {
 	/**
 	 * The<em>SFSBuddyEvent.BUDDY_LIST_INIT</em>constant defines the value of the<em>type</em>property of the event object for a<em>buddyListInit</em>event.
@@ -348,7 +348,7 @@ import flash.events.Event;
 	
 	//========================================================
 	
-	#if !html5
+	#if !(html5 && SFS2X)
 	/**
 	 * Creates a new<em>SFSBuddyEvent</em>instance.
 	 * 

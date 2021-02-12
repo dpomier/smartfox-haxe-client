@@ -2,7 +2,7 @@ package com.smartfoxserver.v2.requests.game;
 
 import com.smartfoxserver.v2.entities.invitation.Invitation;
 import com.smartfoxserver.v2.entities.data.ISFSObject;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.InvitationReplyRequest')
 extern class InvitationReplyRequest{
 	public function new(invitation:Invitation, invitationReply:Float, params:ISFSObject=null);

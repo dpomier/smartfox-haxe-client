@@ -1,5 +1,5 @@
 package com.smartfoxserver.v2.entities.managers;
-#if html5
+#if (html5 && SFS2X)
 import com.smartfoxserver.v2.entities.managers.SFSRoomManager;
 typedef IRoomManager = SFSRoomManager;
 #else

@@ -1,7 +1,7 @@
 package com.smartfoxserver.v2.entities.variables;
 import com.smartfoxserver.v2.entities.data.ISFSArray;
 import com.smartfoxserver.v2.entities.data.ISFSObject;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.SFSUserVariable')
 extern class SFSUserVariable
 {

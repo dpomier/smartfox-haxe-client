@@ -7,7 +7,7 @@ package com.smartfoxserver.v2.entities.data;
  *<p>Positions along the X,Y,Z axes can be expressed as Integers or Floats. Due to the fact that ActionScript 3 doesn't make a clear distinction between these types, while SmartFoxServer 2X does,
  * it is necessary to declare what type will be used by means of the<em>useFloatCoordinates</em>static field.<br>Long and Doubles are not supported on the server side.</p>
  */
- #if html5
+ #if (html5 && SFS2X)
  @:native('SFS2X.Vec3D')
 extern class Vec3D
 {

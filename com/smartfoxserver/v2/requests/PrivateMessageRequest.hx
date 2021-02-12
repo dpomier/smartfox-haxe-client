@@ -2,7 +2,7 @@ package com.smartfoxserver.v2.requests;
 
 import com.smartfoxserver.v2.entities.data.ISFSObject;
 
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.PrivateMessageRequest')
 extern class PrivateMessageRequest
 {

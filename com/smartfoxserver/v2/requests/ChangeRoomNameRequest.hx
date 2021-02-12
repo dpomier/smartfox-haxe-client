@@ -1,5 +1,5 @@
 package com.smartfoxserver.v2.requests;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.ChangeRoomNameRequest')
 extern class ChangeRoomNameRequest{
 	public function new(room:SFSRoom, newMaxUsers:Int, newMaxSpect:Int);

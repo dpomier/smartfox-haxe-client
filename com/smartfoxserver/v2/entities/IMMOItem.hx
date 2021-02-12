@@ -1,5 +1,5 @@
 package com.smartfoxserver.v2.entities;
-#if html5
+#if (html5 && SFS2X)
 typedef IMMOItem = MMOItem;
 #else
 import com.smartfoxserver.v2.entities.data.Vec3D;

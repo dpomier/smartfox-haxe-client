@@ -13,7 +13,7 @@ import com.smartfoxserver.v2.entities.Room;
 import com.smartfoxserver.v2.entities.User;
 import com.smartfoxserver.v2.entities.managers.IRoomManager;
 import com.smartfoxserver.v2.util.ConnectionMode;
-#if html5
+#if (html5 && SFS2X)
 @:jsRequire("SFS2X")
 typedef ConfigObj = {
 	var host:String;

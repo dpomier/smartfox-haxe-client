@@ -1,6 +1,6 @@
 package com.smartfoxserver.v2.requests;
 import com.smartfoxserver.v2.entities.Room;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.PlayerToSpectatorRequest')
 extern class PlayerToSpectatorRequest{
 	public function new(targetRoom:Room=null);

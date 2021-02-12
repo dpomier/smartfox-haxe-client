@@ -3,7 +3,7 @@ package com.smartfoxserver.v2.entities.invitation;
 import com.smartfoxserver.v2.entities.User;
 import com.smartfoxserver.v2.entities.data.ISFSArray;
 import com.smartfoxserver.v2.entities.data.ISFSObject;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.SFSInvitation')
 extern class SFSInvitation{
 	var id(default,null):Int;

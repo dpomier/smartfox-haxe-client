@@ -1,7 +1,7 @@
 package com.smartfoxserver.v2.requests.mmo;
 import com.smartfoxserver.v2.entities.data.Vec3D;
 import com.smartfoxserver.v2.requests.RoomSettings;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.MMORoomSettings')
 extern class MMORoomSettings{
 	var defaultAOI:Vec3D;

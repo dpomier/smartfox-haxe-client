@@ -5,7 +5,7 @@ package com.smartfoxserver.v2.entities.match;
  * 
  * @see MatchExpression
  */
-#if html5 
+#if (html5 && SFS2X) 
  @:native('SFS2X.StringMatch')
  extern #end 
 class StringMatch implements IMatcher
@@ -15,27 +15,27 @@ class StringMatch implements IMatcher
 	/**
 	 * An instance of<em>StringMatch</em>representing the following condition:<em>string1==string2</em>.
 	 */
-	public static var EQUALS:StringMatch #if html5 ; #else = new StringMatch("==");#end
+	public static var EQUALS:StringMatch #if (html5 && SFS2X) ; #else = new StringMatch("==");#end
 	
 	/**
 	 * An instance of<em>StringMatch</em>representing the following condition:<em>string1 !=string2</em>.
 	 */
-	public static var NOT_EQUALS:StringMatch  #if html5 ; #else = new StringMatch("!=");#end
+	public static var NOT_EQUALS:StringMatch  #if (html5 && SFS2X) ; #else = new StringMatch("!=");#end
 	
 	/**
 	 * An instance of<em>StringMatch</em>representing the following condition:<em>string1.indexOf(string2)!=-1</em>.
 	 */
-	public static var CONTAINS:StringMatch #if html5 ; #else = new StringMatch("contains");#end
+	public static var CONTAINS:StringMatch #if (html5 && SFS2X) ; #else = new StringMatch("contains");#end
 	
 	/**
 	 * An instance of<em>StringMatch</em>representing the following condition:<em>string1</em>starts with characters contained in<em>string2</em>.
 	 */
-	public static var STARTS_WITH:StringMatch #if html5 ; #else = new StringMatch("startsWith");#end
+	public static var STARTS_WITH:StringMatch #if (html5 && SFS2X) ; #else = new StringMatch("startsWith");#end
 	
 	/**
 	 * An instance of<em>StringMatch</em>representing the following condition:<em>string1</em>ends with characters contained in<em>string2</em>.
 	 */
-	public static var ENDS_WITH:StringMatch #if html5 ; #else = new StringMatch("endsWith");#end
+	public static var ENDS_WITH:StringMatch #if (html5 && SFS2X) ; #else = new StringMatch("endsWith");#end
 	
 	
 	/** @private */

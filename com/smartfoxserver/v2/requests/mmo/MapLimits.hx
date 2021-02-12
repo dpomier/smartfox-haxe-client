@@ -1,7 +1,7 @@
 package com.smartfoxserver.v2.requests.mmo;
 
 import com.smartfoxserver.v2.entities.data.Vec3D;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.MapLimits')
 extern class MapLimits{
 	var higherLimit:Vec3D;

@@ -1,5 +1,5 @@
 package com.smartfoxserver.v2.entities.match;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.MatchExpression')
 extern class MatchExpression{
 	function new(varName:String, condition:IMatcher, value:Dynamic);

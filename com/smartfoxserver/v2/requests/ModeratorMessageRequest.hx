@@ -2,7 +2,7 @@ package com.smartfoxserver.v2.requests;
 
 import com.smartfoxserver.v2.entities.data.ISFSObject;
 import com.smartfoxserver.v2.requests.MessageRecipientMode;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.ModeratorMessageRequest')
 extern class ModeratorMessageRequest
 {

@@ -2,7 +2,7 @@ package com.smartfoxserver.v2.entities;
 
 import com.smartfoxserver.v2.entities.data.Vec3D;
 import com.smartfoxserver.v2.entities.IMMOItem;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.MMORoom')
 extern class MMORoom extends com.smartfoxserver.v2.entities.Room{
 	var defaultAOI:Vec3D;

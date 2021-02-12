@@ -4,7 +4,7 @@ import com.smartfoxserver.v2.entities.data.ISFSObject;
 import com.smartfoxserver.v2.entities.match.MatchExpression;
 import com.smartfoxserver.v2.entities.User;
 
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.SFSGameSettings')
 extern class SFSGameSettings{
 	var invitationExpiryTime:Float;

@@ -48,7 +48,7 @@ import flash.events.Event;
  * 
  * @see 	SFSBuddyEvent
  */
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.SFSEvent')
 extern class SFSEvent implements Dynamic
 #else
@@ -1665,7 +1665,7 @@ extern class SFSEvent implements Dynamic
 	 */
 	 public static inline var CRYPTO_INIT:String = "CryptoInit";
 	
-	 #if !html5
+	 #if !(html5 && SFS2X)
 	
 	//==========================================================================================================
 	

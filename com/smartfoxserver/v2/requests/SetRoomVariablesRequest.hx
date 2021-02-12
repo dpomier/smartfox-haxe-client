@@ -1,7 +1,7 @@
 package com.smartfoxserver.v2.requests;
 import com.smartfoxserver.v2.entities.Room;
 import com.smartfoxserver.v2.entities.variables.RoomVariable;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.SetRoomVariablesRequest')
 extern class SetRoomVariablesRequest{
 	function new(roomVariables:Array<RoomVariable>, room:Room=null);

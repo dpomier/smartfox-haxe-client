@@ -2,7 +2,7 @@ package com.smartfoxserver.v2.requests.game;
 
 import com.smartfoxserver.v2.entities.Room;
 import com.smartfoxserver.v2.entities.match.MatchExpression;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.QuickJoinGameRequest')
 extern class QuickJoinGameRequest{
 	public function new(matchExpression:MatchExpression, whereToSearch:Array<Room>, roomToLeave:Room=null);

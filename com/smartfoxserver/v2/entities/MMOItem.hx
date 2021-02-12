@@ -1,7 +1,7 @@
 package com.smartfoxserver.v2.entities;
 import com.smartfoxserver.v2.entities.variables.MMOItemVariable;
 import com.smartfoxserver.v2.entities.data.Vec3D;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.MMOItem')
 extern class MMOItem{
 	var aoiEntryPoint:Vec3D;

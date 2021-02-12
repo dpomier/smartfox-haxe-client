@@ -1,7 +1,7 @@
 package com.smartfoxserver.v2.requests.game;
 import com.smartfoxserver.v2.entities.User;
 import com.smartfoxserver.v2.entities.data.ISFSObject;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.InviteUsersRequest')
 extern class InviteUsersRequest{
 	public function new(invitedUsers:Array<User>, secondsForAnswer:Int, params:ISFSObject=null);

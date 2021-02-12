@@ -3,7 +3,7 @@ package com.smartfoxserver.v2.requests.mmo;
 import com.smartfoxserver.v2.entities.Room;
 import com.smartfoxserver.v2.entities.data.Vec3D;
 
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.SetUserPositionRequest')
 extern class SetUserPositionRequest{
 	function new(pos:Vec3D, theRoom:Room=null):Void;

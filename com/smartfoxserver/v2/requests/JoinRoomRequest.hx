@@ -1,7 +1,7 @@
 package com.smartfoxserver.v2.requests;
 
 
-#if html5
+#if (html5 && SFS2X)
  @:native('SFS2X.JoinRoomRequest')
  extern class JoinRoomRequest
  {

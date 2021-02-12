@@ -1,6 +1,6 @@
 package com.smartfoxserver.v2.requests;
 import com.smartfoxserver.v2.entities.variables.RoomVariable;
-#if html5
+#if (html5 && SFS2X)
 extern class RoomSettings
 {
 	var allowOwnerOnlyInvitation:Bool;

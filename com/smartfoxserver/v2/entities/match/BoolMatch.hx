@@ -5,7 +5,7 @@ package com.smartfoxserver.v2.entities.match;
  * 
  * @see MatchExpression
  */
-#if html5 
+#if (html5 && SFS2X) 
  @:native('SFS2X.BoolMatch')
 extern #end class BoolMatch implements IMatcher
 {
@@ -15,12 +15,12 @@ extern #end class BoolMatch implements IMatcher
 	/**
 	 * An instance of<em>BoolMatch</em>representing the following condition:<em>bool1==bool2</em>.
 	 */
-	public static var EQUALS:BoolMatch #if html5 ; #else = new BoolMatch("==");#end
+	public static var EQUALS:BoolMatch #if (html5 && SFS2X) ; #else = new BoolMatch("==");#end
 
 	/**
 	 * An instance of<em>BoolMatch</em>representing the following condition:<em>bool1 !=bool2</em>.
 	 */
-	public static var NOT_EQUALS:BoolMatch #if html5 ; #else = new BoolMatch("!=");#end
+	public static var NOT_EQUALS:BoolMatch #if (html5 && SFS2X) ; #else = new BoolMatch("!=");#end
 	
 	
 	/** @private */

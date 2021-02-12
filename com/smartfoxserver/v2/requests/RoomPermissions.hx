@@ -1,5 +1,5 @@
 package com.smartfoxserver.v2.requests;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.RoomPermissions')
 extern class RoomPermissions{
 	var allowNameChange:Bool;

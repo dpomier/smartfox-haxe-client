@@ -1,7 +1,7 @@
 package com.smartfoxserver.v2.requests.game;
 
 import com.smartfoxserver.v2.requests.game.SFSGameSettings;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.CreateSFSGameRequest')
 extern class CreateSFSGameRequest{
 	public function new(settings:SFSGameSettings);

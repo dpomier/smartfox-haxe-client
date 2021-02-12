@@ -1,5 +1,5 @@
 package com.smartfoxserver.v2.entities.variables;
-#if html5
+#if (html5 && SFS2X)
 typedef IMMOItemVariable = MMOItemVariable;
 #else
 /**

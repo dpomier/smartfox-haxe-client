@@ -1,6 +1,6 @@
 package com.smartfoxserver.v2.requests;
 import com.smartfoxserver.v2.entities.Room;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.CreateRoomRequest')
 extern class CreateRoomRequest{
 	public function new(settings:RoomSettings, autoJoin:Bool=false, roomToLeave:Room=null);

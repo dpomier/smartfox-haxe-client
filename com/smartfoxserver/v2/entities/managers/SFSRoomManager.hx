@@ -1,5 +1,5 @@
 package com.smartfoxserver.v2.entities.managers;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.SFSRoomManager')
 extern class SFSRoomManager{
 

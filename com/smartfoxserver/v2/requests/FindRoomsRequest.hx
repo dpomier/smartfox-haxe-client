@@ -1,6 +1,6 @@
 package com.smartfoxserver.v2.requests;
 import com.smartfoxserver.v2.entities.match.MatchExpression;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.FindRoomsRequest')
 extern class FindRoomsRequest{
 	public function new(expr:MatchExpression, groupId:String=null, limit:Int=0);

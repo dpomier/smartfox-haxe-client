@@ -2,7 +2,7 @@ package com.smartfoxserver.v2.protocol.serialization;
 
 import flash.utils.ByteArray;
 /*
-#if html5
+#if (html5 && SFS2X)
 @native(_DataSerializer.SFSDataSerializer)
 extern class DefaultSFSDataSerializer
 {
@@ -160,7 +160,7 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 		 		// Store decoded object and keep going
 				if(decodedObject !=null)
 				{
-					#if html5
+					#if (html5 && SFS2X)
 					sfsObject.put(key, decodedObject.data, decodedObject.type);
 					#else
 					sfsObject.put(key, decodedObject);
@@ -224,7 +224,7 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 		 		// Store decoded object and keep going
 				if(decodedObject !=null)
 				{
-					#if html5
+					#if (html5 && SFS2X)
 					sfsArray.add(decodedObject.data, decodedObject.type);
 					#else
 					sfsArray.add(decodedObject);
@@ -929,7 +929,7 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 			
 			// store field value
 			var data = wrapASField(fieldValue);
-			#if html5
+			#if (html5 && SFS2X)
 			fieldDescriptor.put(FIELD_VALUE_KEY, data.data, data.type);
 			#else
 			fieldDescriptor.put(FIELD_VALUE_KEY, data);
@@ -989,7 +989,7 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 		for(j in 0...arr.length)
 		{
 			var data = wrapASField(arr[j]);
-			#if html5
+			#if (html5 && SFS2X)
 			sfsArray.add(data.data, data.type);
 			#else
 			sfsArray.add(data);
@@ -1006,7 +1006,7 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 		for(key in Reflect.fields(dict))
 		{
 			var data = wrapASField(Reflect.field(dict,key));
-			#if html5
+			#if (html5 && SFS2X)
 			sfsObj.put(key, data.data, data.type);
 			#else
 			sfsObj.put(key, data);

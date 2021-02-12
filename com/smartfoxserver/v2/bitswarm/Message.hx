@@ -2,8 +2,10 @@ package com.smartfoxserver.v2.bitswarm;
 
 import com.smartfoxserver.v2.entities.data.ISFSObject;
 
+#if (html5 && SFS2X)
 @:build(JsProp.all())
-class Message #if !html5 implements IMessage #end
+#end
+class Message #if !(html5 && SFS2X) implements IMessage #end
 {
 	private var _id:Int;
 	private var _content:ISFSObject;

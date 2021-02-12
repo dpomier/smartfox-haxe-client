@@ -4,7 +4,7 @@ package com.smartfoxserver.v2.entities.managers;
 import com.smartfoxserver.v2.entities.Buddy;
 import com.smartfoxserver.v2.entities.variables.BuddyVariable;
 
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.SFSBuddyManager')
 extern class SFSBuddyManager{
 	public var buddyList(get,null):Array<Buddy>;

@@ -1,5 +1,5 @@
 package com.smartfoxserver.v2.requests;
-#if html5
+#if (html5 && SFS2X)
 @:native('SFS2X.FindUsersRequest')
 extern class FindUsersRequest{
 	public function new(expr:MatchExpression, groupId:String=null, limit:Int=0);

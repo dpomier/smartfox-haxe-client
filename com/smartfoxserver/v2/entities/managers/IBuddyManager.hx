@@ -1,5 +1,5 @@
 package com.smartfoxserver.v2.entities.managers;
-#if html5
+#if (html5 && SFS2X)
 typedef IBuddyManager = SFSBuddyManager;
 #else
 import com.smartfoxserver.v2.entities.Buddy;
