@@ -1349,7 +1349,7 @@ class SmartFox extends EventDispatcher
 	 * @see		#disconnect()
 	 * @see		#event:connection connection event
 	 */
-	public function connect(host:String=null, port:Int=-1):Void
+	public function connect(host:String=null, port:Int=-1, ?useSSL:Bool):Void
 	{
 		if(isConnected)
 		{
@@ -1372,7 +1372,13 @@ class SmartFox extends EventDispatcher
 				
 			if(port==-1)
 				port = config.port;
-		}	
+				
+			if(useSSL==null)
+				useSSL = config.useSSL;
+		}
+
+		if(useSSL==null)
+			useSSL = false;
 		
 		// Apply basic validation
 		if(host==null || host.length==0)
@@ -1384,7 +1390,7 @@ class SmartFox extends EventDispatcher
 		// All fine and dandy, let's proceed with the connection
 		_lastIpAddress = host;
 		_isConnecting = true;
-		_bitSwarm.connect(host, port);	
+		_bitSwarm.connect(host, port, useSSL);	
 	}
 	
 	/**
@@ -2230,7 +2236,13 @@ class SmartFox extends EventDispatcher
 		if(_bitSwarm.connectionMode==ConnectionMode.SOCKET && _useBlueBox)
 		{
 			_bitSwarm.forceBlueBox(true);
-			var bbPort:Int = config != null ? config.httpPort:DEFAULT_HTTP_PORT;
+			
+			var bbPort:Int = switch config {
+				case null:
+					DEFAULT_HTTP_PORT;
+				case config:
+					config.useSSL ? config.httpsPort : config.httpPort;
+			}
 				
 			_bitSwarm.connect(_lastIpAddress, bbPort);
 				

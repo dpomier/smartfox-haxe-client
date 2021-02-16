@@ -58,6 +58,13 @@ class ConfigData
 	 * @default false
 	 */
 	public var debug:Bool = false;
+
+	/**
+	 * Use an encrypted SSL connection.
+	 * 
+	 * @default false
+	 */
+	public var useSSL:Bool = false;
 	
 	/**
 	 * Specifies the port for generic HTTP communication.

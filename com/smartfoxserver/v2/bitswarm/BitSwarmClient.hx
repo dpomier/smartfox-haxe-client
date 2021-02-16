@@ -250,7 +250,7 @@ class BitSwarmClient extends EventDispatcher
 		addController(id, controller);
 	}
 	
-	public function connect(host:String="127.0.0.1", port:Int=9933):Void
+	public function connect(host:String="127.0.0.1", port:Int=9933, useSSL:Bool=false):Void
 	{
 		_lastIpAddress = host;
 		_lastTcpPort = port;
@@ -263,7 +263,11 @@ class BitSwarmClient extends EventDispatcher
 		}
 		else
 		{
-			_socket.connect(host, port);
+			#if !flash
+			_socket.secure = useSSL;
+			#end
+
+			_socket.connect(host #if js + "/BlueBox/websocket" #end, port);
 			_connectionMode = ConnectionMode.SOCKET;
 		}
 	}
