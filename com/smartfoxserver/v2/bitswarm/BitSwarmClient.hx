@@ -462,7 +462,7 @@ class BitSwarmClient extends EventDispatcher
 		_connected = false;
 		
 		var isRegularDisconnection:Bool = !_attemptingReconnection && sfs.getReconnectionSeconds() == 0;
-		var isManualDisconnection:Bool = (#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(evt, BitSwarmEvent)) && cast(evt,BitSwarmEvent).params.reason == ClientDisconnectionReason.MANUAL;
+		var isManualDisconnection:Bool = (#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(evt, BitSwarmEvent)) && cast(evt,BitSwarmEvent).params.reason == ClientDisconnectionReason.MANUAL;
 
 		if(isRegularDisconnection || isManualDisconnection)
 		{
@@ -528,7 +528,7 @@ class BitSwarmClient extends EventDispatcher
 		* A BitSwarmEvent is passed if the disconnection was requested by the server
 		* The event includes a reason for the disconnection(idle, kick, ban...)
 		*/
-		if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(evt, BitSwarmEvent))
+		if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(evt, BitSwarmEvent))
 			dispatchEvent(evt);
 			
 			/*

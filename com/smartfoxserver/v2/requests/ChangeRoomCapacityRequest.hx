@@ -10,7 +10,7 @@ import com.smartfoxserver.v2.exceptions.SFSValidationError;
  * who subscribed the Group to which the target Room belongs, including the requester user himself.
  * If the user is not the creator(owner)of the Room, or if the Room was configured so that capacity changing is not allowed
  *(see the<em>RoomSettings.permissions</em>parameter), the<em>roomCapacityChangeError</em>event is fired.
- * An administrator or moderator can override the first constrain(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(he, not) requested to be the Room's owner).</p>
+ * An administrator or moderator can override the first constrain(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(he, not) requested to be the Room's owner).</p>
  * 
  *<p>In case the Room's capacity is reduced to a value less than the current number of users/spectators inside the Room, exceeding users are NOT disconnected.</p>
  * 

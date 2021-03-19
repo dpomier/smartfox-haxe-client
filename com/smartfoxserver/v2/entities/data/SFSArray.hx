@@ -91,7 +91,7 @@ class SFSArray implements ISFSArray
 	/** @inheritDoc */
 	public function contains(obj:Dynamic):Bool
 	{
-		if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(obj, ISFSArray) || #if (haxe > "4.0.0") Std.isOfType #else Std.is #end(obj,ISFSObject))
+		if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(obj, ISFSArray) || #if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(obj,ISFSObject))
 			throw new SFSError("ISFSArray and ISFSObject are not supported by this method.");
 			
 		var found:Bool = false;

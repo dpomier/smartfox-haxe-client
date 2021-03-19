@@ -26,7 +26,7 @@ internal class ProximityObjectMessageRequest extends DynamicMessageRequest
 		if(_params==null)
 			errors.push("Object message is null!");
 		
-		if(!(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(_room, MMORoom)))
+		if(!(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(_room, MMORoom)))
 			errors.push("Target Room is not an MMORoom");
 		
 		if(_aoi==null)

@@ -176,7 +176,7 @@ class SFSRoomManager implements IRoomManager
 	/** @inheritDoc */
 	public function containsRoom(idOrName:Dynamic):Bool
 	{
-		if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(idOrName,Int))
+		if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(idOrName,Int))
 			return _roomsById.exists(idOrName);
 		else
 			return _roomsByName.exists(idOrName);
@@ -187,7 +187,7 @@ class SFSRoomManager implements IRoomManager
 	{
 		var roomList:Array<Room> = getRoomListFromGroup(groupId);
 		var found:Bool = false;	
-		var searchById:Bool = (#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(idOrName,Float));
+		var searchById:Bool = (#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(idOrName,Float));
 		
 		for(room in roomList)
 		{

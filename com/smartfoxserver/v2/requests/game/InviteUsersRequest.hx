@@ -143,7 +143,7 @@ class InviteUsersRequest extends BaseRequest
 		// Check items validity, accept any User or Buddy object(s)
 		for(item in _invitedUsers)
 		{
-			if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, User) || #if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item,Buddy))
+			if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, User) || #if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item,Buddy))
 			{
 				// Can't invite myself!
 				if(item==sfs.mySelf)

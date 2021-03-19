@@ -186,15 +186,15 @@ class GenericMessageRequest extends BaseRequest
 		switch(_sendMode)
 		{
 			case MessageRecipientMode.TO_USER:
-				if(!(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(_recipient, User)))
+				if(!(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(_recipient, User)))
 					errors.push("TO_USER expects a User object as recipient");
 				
 			case MessageRecipientMode.TO_ROOM:
-				if(!(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(_recipient, Room)))
+				if(!(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(_recipient, Room)))
 					errors.push("TO_ROOM expects a Room object as recipient");
 			
 			case MessageRecipientMode.TO_GROUP:
-				if(!(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(_recipient, String)))
+				if(!(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(_recipient, String)))
 					errors.push("TO_GROUP expects a String object(the groupId)as recipient");
 		}
 	}
@@ -278,7 +278,7 @@ class GenericMessageRequest extends BaseRequest
 		// Populate a recipient list, no duplicates allowed
 		var recipients:Map<Int,Bool> = new Map<Int,Bool>();
 		
-		if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(_recipient, Array))
+		if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(_recipient, Array))
 		{
 			var potentialRecipients:Array<Dynamic> = cast(_recipient, Array<Dynamic>);
 			
@@ -289,7 +289,7 @@ class GenericMessageRequest extends BaseRequest
 			// Filter out potential wrong elements
 			for(item in potentialRecipients)
 			{
-				if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, User))
+				if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, User))
 					recipients.set(item.id,true);
 				else
 					sfs.logger.warn("Bad recipient in DynamicMessage recipient list:" +Type.typeof(item) + ", expected type:User");

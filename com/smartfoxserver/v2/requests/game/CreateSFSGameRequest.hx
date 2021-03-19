@@ -172,7 +172,7 @@ class CreateSFSGameRequest extends BaseRequest
 			
 			for(player in _settings.invitedPlayers)
 			{
-				if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(player, User) || #if (haxe > "4.0.0") Std.isOfType #else Std.is #end(player,Buddy))
+				if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(player, User) || #if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(player,Buddy))
 					playerIds.push(player.id);
 			} 
 			_sfso.putIntArray(KEY_INVITED_PLAYERS, playerIds);

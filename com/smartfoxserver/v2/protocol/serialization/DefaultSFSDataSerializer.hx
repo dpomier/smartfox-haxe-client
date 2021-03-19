@@ -906,7 +906,7 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 		if(classFullName==null)
 			throw new SFSCodecError("Cannot detect class name:" + sfsObj);
 
-		if(!(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(asObj, SerializableSFSType)))
+		if(!(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(asObj, SerializableSFSType)))
 			throw new SFSCodecError("Cannot serialize object:" + asObj + ", type:" + classFullName + " -- It doesn't implement the SerializableSFSType Interface");
 
 		var fieldList:ISFSArray = SFSArray.newInstance();
@@ -957,13 +957,13 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 		var wrapper:SFSDataWrapper=null;
 		var type:String = Type.getClassName(Type.getClass(value));
 
-		if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(value, Bool))
+		if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(value, Bool))
 			wrapper = new SFSDataWrapper(SFSDataType.BOOL, value);
 
-		else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(value, Int) || #if (haxe > "4.0.0") Std.isOfType #else Std.is #end(value,Int))
+		else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(value, Int) || #if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(value,Int))
 			wrapper = new SFSDataWrapper(SFSDataType.INT, value);
 
-		else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(value, Float))
+		else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(value, Float))
 		{
 			// Differntiate between decimal(Double)and non-decimal(Long)
 			if(value==Math.floor(value))
@@ -972,16 +972,16 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 				wrapper = new SFSDataWrapper(SFSDataType.DOUBLE, value);
 		}
 
-		else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(value, String))
+		else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(value, String))
 			wrapper = new SFSDataWrapper(SFSDataType.UTF_STRING, value);
 
-		else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(value, Array))
+		else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(value, Array))
 			wrapper = new SFSDataWrapper(SFSDataType.SFS_ARRAY, unrollArray(value));
 
-		else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(value, SerializableSFSType))
+		else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(value, SerializableSFSType))
 			wrapper = new SFSDataWrapper(SFSDataType.SFS_OBJECT, as2sfs(value));
 
-		else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(value, Dynamic))
+		else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(value, Dynamic))
 			wrapper = new SFSDataWrapper(SFSDataType.SFS_OBJECT, unrollDictionary(value));
 
 		return wrapper;
@@ -1026,7 +1026,7 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 		var theClass:Class<Dynamic> = Type.resolveClass(className);
 		asObj = Type.createInstance(theClass,[]);
 
-		if(!(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(asObj, SerializableSFSType)))
+		if(!(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(asObj, SerializableSFSType)))
 			throw new SFSCodecError("Cannot deserialize object:" + asObj + ", type:" + className + " -- It doesn't implement the SerializableSFSType Interface");
 
 		//trace("CLASS:" + className)
@@ -1136,7 +1136,7 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 			 * ADDENDUM:	there is a special case in which the Dynamic is actually an Array with one element as Dynamic
 			 * 				in such case an Array is recognized as Dynamic!
 			 */
-			else if((item.toString()=="[object Dynamic]" || item.toString() == "[object Object]")  && !(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, Array)))
+			else if((item.toString()=="[object Dynamic]" || item.toString() == "[object Object]")  && !(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, Array)))
 			{
 				var subSfso:ISFSObject = new SFSObject();
 				sfso.putSFSObject(key, subSfso);
@@ -1144,19 +1144,19 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 				// Call recursively
 				_scanGenericObject(item, subSfso, forceToNumber);
 			}
-			else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, Array))
+			else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, Array))
 				sfso.putSFSArray(key, genericArrayToSFSArray(item, forceToNumber));
 
-			else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, Bool))
+			else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, Bool))
 				sfso.putBool(key, item);
 
-			else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, Int) && !forceToNumber)
+			else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, Int) && !forceToNumber)
 				sfso.putInt(key, item);
 
-			else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, Float))
+			else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, Float))
 				sfso.putDouble(key, item);
 
-			else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, String))
+			else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, String))
 				sfso.putUtfString(key, item);
 
 		}
@@ -1227,10 +1227,10 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 				sfsa.addNull();
 
 				// See notes for SFSObject
-			else if((item.toString()=="[object Dynamic]" || item.toString() == "[object Object]")  && !(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, Array)))
+			else if((item.toString()=="[object Dynamic]" || item.toString() == "[object Object]")  && !(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, Array)))
 				sfsa.addSFSObject(genericObjectToSFSObject(item, forceToNumber));
 
-			else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, Array))
+			else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, Array))
 			{
 				var subSfsa:ISFSArray = new SFSArray();
 				sfsa.addSFSArray(subSfsa);
@@ -1239,16 +1239,16 @@ class DefaultSFSDataSerializer implements ISFSDataSerializer
 				_scanGenericArray(item, subSfsa, forceToNumber);
 			}
 
-			else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, Bool))
+			else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, Bool))
 				sfsa.addBool(item);
 
-			else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, Int) && !forceToNumber)
+			else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, Int) && !forceToNumber)
 				sfsa.addInt(item);
 
-			else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, Float))
+			else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, Float))
 				sfsa.addDouble(item);
 
-			else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, String))
+			else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(item, String))
 				sfsa.addUtfString(item);
 
 		}

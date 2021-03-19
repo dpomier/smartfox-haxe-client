@@ -89,11 +89,11 @@ class JoinRoomRequest extends BaseRequest
 	{
 		super(BaseRequest.JoinRoom);
 
-		if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(id, String))
+		if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(id, String))
 			_name = id;
-		else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(id, Float))
+		else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(id, Float))
 			_roomId = id;
-		else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(id, Room))
+		else if(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(id, Room))
 			_roomId = cast(id, Room).id;
 		
 		_pass = pass;

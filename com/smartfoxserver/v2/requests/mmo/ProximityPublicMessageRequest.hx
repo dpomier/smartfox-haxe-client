@@ -25,7 +25,7 @@ internal class ProximityPublicMessageRequest extends PublicMessageRequest
 		if(_message==null || _message.length==0)
 			errors.push("Public message is empty!")
 				
-		if(!(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(_room, MMORoom)))
+		if(!(#if (haxe != "4.0.0-rc.3") Std.isOfType #else Std.is #end(_room, MMORoom)))
 			errors.push("Target Room is not an MMORoom");
 		
 		if(_aoi==null)
