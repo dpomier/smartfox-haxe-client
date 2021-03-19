@@ -105,11 +105,11 @@ class QuickJoinGameRequest extends BaseRequest
 	override public function execute(sfs:SmartFox):Void
 	{
 		// Auto detect whereToSearch types --->>String, GroupId
-		if(Std.isOfType(_whereToSearch[0],String))
+		if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(_whereToSearch[0],String))
 			_sfso.putUtfStringArray(KEY_GROUP_LIST, cast _whereToSearch);
 		
 		// --->>Room
-		else if(Std.isOfType(_whereToSearch[0],Room))
+		else if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(_whereToSearch[0],Room))
 		{
 			var roomIds:Array<Int> = [];
 			
@@ -117,7 +117,7 @@ class QuickJoinGameRequest extends BaseRequest
 			{
 				var item:Room = _whereToSearch[i];
 				
-				if(Std.isOfType(item, Room))
+				if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(item, Room))
 					roomIds.push(item.id);
 			}
 			

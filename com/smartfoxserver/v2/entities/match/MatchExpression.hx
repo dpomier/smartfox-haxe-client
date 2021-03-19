@@ -231,7 +231,7 @@ class MatchExpression
 			sb += " " + logicOp.id + " ";
 			
 		sb += "(";
-		sb += varName + " " + condition.symbol + " " +(Std.isOfType(value, String) ?("'" + value + "'"):value);
+		sb += varName + " " + condition.symbol + " " +(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(value, String) ?("'" + value + "'"):value);
 		sb += ")";
 		
 		return sb;

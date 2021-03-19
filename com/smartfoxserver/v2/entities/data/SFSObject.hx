@@ -277,7 +277,7 @@ class SFSObject implements ISFSObject
 			return wrapper.data;
 			#else
 			var value:Dynamic = wrapper.data;
-			if(Std.isOfType(value, Int))
+			if(#if (haxe > "4.0.0") Std.isOfType #else Std.is #end(value, Int))
 			{
 				return value;
 			}
